@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="container nav-content">
+        <div class="logo-group">
+            <a href="index.html" class="logo-link">
+                <img src="moviescript-logo.png" alt="icon" class="site-logo-icon">
+                <span class="logo-text">MOVIESCRIPT</span>
+            </a>
+        </div>
+        
+        <div class="nav-icons">
+            <i class="fas fa-home"></i>
+            <i class="fas fa-search"></i>
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+    <div class="wrapper">
+        <header class="hero-section">
+    <div class="hero-content">
+        <h1>Welcome</h1>
+        <p class="hero-subtitle">Find the movie you want to watch—anytime, anywhere, all in one search.</p>
+        
+        <div class="search-container">
+            <div class="search-element">
+                <input type="text" class="form-control" placeholder="Search for a movie..." id="movie-search-box" onkeyup="findMovies()">
+                <button class="search-icon-btn"><i class="fas fa-search"></i></button>
+                <div class="search-list hide-search-list" id="search-list"></div>
+            </div>
+        </div>
+    </div>
+</header>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
