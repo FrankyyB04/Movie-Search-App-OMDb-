@@ -13,9 +13,11 @@ function App() {
 
   const searchRef = useRef(null);
 
+  /* Helper: Poster Fallback */
   const getPoster = (poster) => 
     poster !== 'N/A' ? poster : 'https://via.placeholder.com/40x60?text=No+Poster';
 
+  /* Event Handlers */
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -36,7 +38,7 @@ function App() {
       });
   };
 
-  // Search API call
+  /* Search API Logic */
   useEffect(() => {
     const fetchMovies = async () => {
       const trimmed = searchTerm.trim();
@@ -72,7 +74,7 @@ function App() {
     return () => clearTimeout(debounce);
   }, [searchTerm]);
 
-  // Close dropdown when clicking outside
+  /* Click-Outside Handler */
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (searchRef.current && !searchRef.current.contains(e.target)) {
@@ -85,14 +87,24 @@ function App() {
 
   return (
     <div className="wrapper">
+
+      {/* Branding & Logo */}
       <div className="logo">
-        <p>Movie ni <span>Franco</span></p>
+        <a href="/" className="logo-link">
+          <img 
+            src="moviescript-logo.png" 
+            alt="Logo" 
+            className="site-logo-icon" 
+          />
+          <p>Movie<span>Script</span></p>
+        </a>
       </div>
       <div className="container">
+
+        {/* Search Interface */}
         <div className="search-element" ref={searchRef}>
           <h3>Search Movie:</h3>
-          
-          {/* ✅ New wrapper for input & error */}
+
           <div className="search-input-wrapper">
             <input
               type="text"
@@ -104,7 +116,7 @@ function App() {
             {error && <div className="error-message">{error}</div>}
           </div>
 
-          {/* ✅ Dropdown only shows when there's NO error */}
+          {/* Search Dropdown */}
           {showSearchList && searchResults.length > 0 && !error && (
             <ul className="search-list">
               {searchResults.map((movie) => (
